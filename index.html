@@ -1,0 +1,93 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title data-translator-key="weather">Weather</title>
+        <link rel="stylesheet" type="text/css" href="styles.css"/>
+        <link rel="stylesheet" type="text/css" href="fontello/css/fontello.css"/>
+        <link rel="stylesheet" type="text/css" href="weather-icons-master/css/weather-icons.min.css"/>
+        <script src="Chart.js-2.9.3/dist/Chart.bundle.min.js"></script>
+        <script src="locations.js"></script>
+        <script src="ui.js"></script>
+        <script src="icon_map.js"></script>
+        <script src="translator.js"></script>
+        <script src="weather.js"></script>
+        <script src="main.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <button id="menu_button" class="icon-menu" onclick="ui.locations_container.show();"></button>
+
+            <div id="current_location_label"></div>
+
+            <button id="favorite_button" class="icon-star-empty" onclick="locations.add_current_location();"></button>
+        </header>
+
+
+
+        <div id="weather_container">
+            <div id="current_weather_container">
+                <div id="current_weather_primary_grid">
+                    <div id="current_temperature_label"></div>
+                    <div id="current_weather_icon" class="wi"></div>
+                    <div id="current_weather_label"></div>
+                </div>
+
+                <div id="current_weather_secondary_grid">
+                    <div>
+                        <span class="wi wi-umbrella"></span>
+                        <span id="current_precipitation_label"></span>
+                    </div>
+
+                    <div>
+                        <span id="current_wind_direction_label" class="wi wi-direction-up"></span>
+                        <span id="current_wind_speed_label"></span>
+                    </div>
+
+                    <div>
+                        <span class="wi wi-humidity"></span>
+                        <span id="current_humidity_label"></span>
+                    </div>
+
+                    <div>
+                        <span class="wi wi-barometer"></span>
+                        <span id="current_pressure_label"></span>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div id="hourly_forecast_container">
+                <h2 data-translator-key="48_hours">48 Hours</h2>
+
+                <canvas id="hourly_forecast_chart"></canvas>
+            </div>
+
+
+
+            <div id="daily_forecast_container">
+                <h2 data-translator-key="7_days">7 Days</h2>
+            </div>
+        </div>
+
+
+
+        <div id="overlay" onclick="ui.locations_container.hide();" class="hidden"></div>
+
+        <div id="locations_container" class="hidden">
+            <h2 data-translator-key="locations">Locations</h2>
+
+            <div id="location_input_container">
+                <input id="location_input" placeholder="Ort suchen"/>
+                <button class="icon-search" onclick="weather.search();"></button>
+            </div>
+
+            <h3 data-translator-key="favorite_locations">Favorite locations</h3>
+            <div id="favorite_locations_container"></div>
+        </div>
+    </body>
+</html>
