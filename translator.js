@@ -14,13 +14,13 @@ var translator = {
             "favorite_locations": "Favorite Locations",
             "search_location": "Search Location",
             "today": "Today",
-            "monday": "Monday",
-            "tuesday": "Tuesday",
-            "wednesday": "Wednesday",
-            "thursday": "Thursday",
-            "friday": "Friday",
-            "saturday": "Saturday",
-            "sunday": "Sunday"
+            "mon": "Mon",
+            "tue": "Tue",
+            "wed": "Wed",
+            "thu": "Thu",
+            "fri": "Fri",
+            "sat": "Sat",
+            "sun": "Sun"
         },
 
         "de": {
@@ -31,13 +31,13 @@ var translator = {
             "favorite_locations": "Lieblingsorte",
             "search_location": "Ort suchen",
             "today": "Heute",
-            "monday": "Montag",
-            "tuesday": "Dienstag",
-            "wednesday": "Mittwoch",
-            "thursday": "Donnerstag",
-            "friday": "Freitag",
-            "saturday": "Samstag",
-            "sunday": "Sonntag"
+            "mon": "Mon",
+            "tue": "Die",
+            "wed": "Mit",
+            "thu": "Don",
+            "fri": "Fre",
+            "sat": "Sam",
+            "sun": "Son"
         }
     },
 

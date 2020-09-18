@@ -207,7 +207,7 @@ var weather = {
 
             //display
             var daily_forecast_container = document.getElementById("daily_forecast_container");
-            var weekdays = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+            var weekdays = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
             var day_labels = daily_forecast_container.getElementsByClassName("day_label");
             var weather_icons = daily_forecast_container.getElementsByClassName("weather_icon");
             var temperature_span_bars = daily_forecast_container.getElementsByClassName("temperature_span_bar");
