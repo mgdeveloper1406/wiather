@@ -127,7 +127,7 @@ var weather = {
                     pointStyles.push("circle");
                 }
 
-                /*var precipitation = function() {
+                var precipitation = function() {
                     var result = 0;
 
                     if (typeof hourly_forecast[i].rain != "undefined") {
@@ -139,9 +139,9 @@ var weather = {
                     }
 
                     return result;
-                }();*/
+                }();
 
-                short_forecast_data.push({"x": time, "y": temperature, "description": description});
+                short_forecast_data.push({"x": time, "y": temperature, "description": description, "precipitation": precipitation});
                 //precipitations.push({"x": time, "y": precipitation});
             }
 

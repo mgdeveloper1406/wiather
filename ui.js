@@ -136,7 +136,7 @@ var ui = {
                         displayColors: false,
 
                         callbacks: {
-                            label: function(tooltipItem, data) {
+                            beforeLabel: function(tooltipItem, data) {
                                 var data = data.datasets[0].data;
 
                                 var temperature = data[tooltipItem.index].y + " °C";
@@ -144,13 +144,25 @@ var ui = {
                                 return temperature;
                             },
 
-                            afterLabel: function(tooltipItem, data) {
+                            label: function(tooltipItem, data) {
                                 var data = data.datasets[0].data;
 
                                 var description = data[tooltipItem.index].description;
 
                                 return description;
-                            } 
+                            },
+
+                            afterLabel: function(tooltipItem, data) {
+                                var data = data.datasets[0].data;
+
+                                var precipitation = data[tooltipItem.index].precipitation;
+
+                                if (precipitation === 0) {
+                                    return false
+                                }
+
+                                return precipitation + " mm"
+                            }
                         }
                     },
 
