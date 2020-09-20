@@ -109,18 +109,7 @@ var ui = {
                         clip: 0,
                         fill: "origin",
                         tension: 0.1
-                    }/*, {
-                        data: precipitations,
-                        yAxisID: "A2",
-                        borderWidth: 5,
-                        pointRadius: 0,
-                        pointHitRadius: 10,
-                        borderCapStyle: "round",
-                        lineJointStyle: "round",
-                        clip: 10,
-                        fill: "origin",
-                        tension: 0.1
-                    }*/]
+                    }]
                 },
 
                 options: {
@@ -185,7 +174,8 @@ var ui = {
                             ticks: {
                                 maxTicksLimit: 12,
                                 maxRotation: 0,
-                                fontFamily: "Montserrat"
+                                fontFamily: "Montserrat",
+                                fontColor: "hsl(185, 25%, 20%)"
                             },
                             type: "time",
                             time: {
@@ -199,20 +189,15 @@ var ui = {
                         yAxes: [{
                             ticks: {
                                 maxTicksLimit: 6,
-                                fontFamily: "Montserrat"
+                                fontFamily: "Montserrat",
+                                fontColor: "hsl(185, 25%, 20%)",
+                                callback: function(value) {
+                                    return value + "°";
+                                }
                             },
                             id: "A1",
                             position: "left",
-                        }/*, {
-                            ticks: {
-                                maxTicksLimit: 5
-                            },
-                            gridLines: {
-                                display: false
-                            },
-                            id: "A2",
-                            position: "right"
-                        }*/]
+                        }]
                     }
                 }
             });
