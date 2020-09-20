@@ -326,7 +326,7 @@ header > button {
 
 
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 900px) {
     body {
         display: grid;
         grid-template-columns: 300px auto;
@@ -343,7 +343,6 @@ header > button {
 
     #weather_container {
         grid-column: 2 / 3;
-        grid-row: 1 / 2; 
     }
 
     #locations_container {
