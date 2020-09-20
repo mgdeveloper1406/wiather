@@ -66,9 +66,20 @@ var ui = {
 
             for (let i = 0; i < 8; i++) {
                 daily_forecast_container.innerHTML += 
+                    '<div class="daily_forecast_row">' +
                     '<span class="day_label"></span>' +
                     '<span class="weather_icon wi"></span>' +
-                    '<div class="temperature_span_container"><div class="temperature_span_bar"></div></div>';
+                    '<div class="temperature_span_container"><div class="temperature_span_bar"></div></div>' +
+                    '<div class="additional_info_container hidden">More info</div>' +
+                    '</div>';
+            }
+
+            var additional_info_containers = document.querySelectorAll("#daily_forecast_container .daily_forecast_row");
+
+            for (let element of additional_info_containers) {
+                element.addEventListener("click", function(e) {
+                    element.getElementsByClassName("additional_info_container")[0].classList.toggle("hidden")
+                });
             }
         }
 

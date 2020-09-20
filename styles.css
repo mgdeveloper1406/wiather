@@ -114,6 +114,8 @@ header > button {
 
 
 
+
+
 #weather_container {
     margin-top: var(--space-5);
     padding: 0 var(--space-0) var(--space-0) var(--space-0);
@@ -150,6 +152,8 @@ header > button {
 
 
 
+
+
 #current_weather_secondary_grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -176,6 +180,8 @@ header > button {
 
 
 
+
+
 #hourly_forecast_container, #daily_forecast_container {
     padding: var(--space-0);
     border-radius: 5px;
@@ -189,18 +195,25 @@ header > button {
 }
 
 #daily_forecast_container {
-    display: grid;
-    grid-template-columns: auto auto 1fr;
-    grid-gap: var(--space--1) var(--space-0);
     margin-top: var(--space-0);
 }
 
-#daily_forecast_container > h2 {
-    grid-column: 1 / 4;
+#daily_forecast_container > .daily_forecast_row {
+    display: grid;
+    grid-template-columns: 5ch auto 1fr;
+    grid-gap: 0 var(--space-0);
+    margin-top: var(--space--1);
+}
+
+#daily_forecast_container .weather_icon {
+    text-align: center;
+    font-size: var(--space-1);
+    line-height: 1;
 }
 
 .temperature_span_container {
     position: relative;
+    height: var(--space-1);
 }
 
 .temperature_span_bar {
@@ -219,11 +232,24 @@ header > button {
     transition: width 1s ease-in-out, left 1s ease-in-out;
 }
 
-.weather_icon {
-    text-align: center;
-    font-size: var(--space-1);
-    line-height: 1;
+#daily_forecast_container .additional_info_container {
+    overflow: hidden;
+    padding-top: var(--space--1);
+    grid-column: 1 / 4;
+    font-size: var(--space--1);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: auto auto auto;
+    grid-gap: var(--space-0);
+    justify-items: center;
 }
+
+#daily_forecast_container .additional_info_container.hidden {
+    padding-top: 0;
+    height: 0;
+}
+
+
 
 
 

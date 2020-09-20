@@ -178,15 +178,38 @@ var weather = {
             var min_temps = [];
             var max_temps = [];
             var weather_ids = [];
+            var precipitations = [];
+            var descriptions = [];
+            var wind_directions = [];
+            var wind_speeds = [];
 
             var min_min_temp;
             var max_max_temp;
 
-            for (let day of daily_forecast) {
+            for (let day of daily_forecast) {                
                 dates.push(new Date(parseInt(day.dt.toString() + "000")));
                 min_temps.push(Math.round(day.temp.min));
                 max_temps.push(Math.round(day.temp.max));
                 weather_ids.push(day.weather[0].id);
+                descriptions.push(day.weather[0].description);
+                wind_directions.push(day.wind_deg);
+                wind_speeds.push(day.wind_speed)
+
+                let precipitation = function() {
+                    var total = 0;
+
+                    if (typeof(day.rain) !== "undefined") {
+                        total += day.rain;
+                    }
+
+                    if (typeof(day.snow) !== "undefined") {
+                        total += day.snow;
+                    }
+
+                    return total;
+                }();
+
+                precipitations.push(precipitation)
             }
 
             //determinen lowest and highest temperatures of dataset
@@ -211,6 +234,7 @@ var weather = {
             var day_labels = daily_forecast_container.getElementsByClassName("day_label");
             var weather_icons = daily_forecast_container.getElementsByClassName("weather_icon");
             var temperature_span_bars = daily_forecast_container.getElementsByClassName("temperature_span_bar");
+            var additional_info_containers = daily_forecast_container.getElementsByClassName("additional_info_container");
 
             for (let i = 0; i < dates.length; i++) {
                 day_labels[i].innerText = function() {
@@ -225,6 +249,10 @@ var weather = {
                 temperature_span_bars[i].innerHTML = `<span>${min_temps[i]}</span><span style="float: right;">${max_temps[i]}</span>`
                 temperature_span_bars[i].style.left = `${(min_temps[i] - min_min_temp) / (max_max_temp - min_min_temp) * 100}%`;
                 temperature_span_bars[i].style.width = `${(max_temps[i] - min_temps[i]) / (max_max_temp - min_min_temp) * 100}%`;
+                additional_info_containers[i].innerHTML =
+                    `<span>${descriptions[i]}</span>` +
+                    `<span><span class="wi wi-umbrella"></span> ${precipitations[i]} mm</span>` +
+                    `<span><span class="wi wi-direction-up" style="font-size: var(--space-0); line-height: var(--space-0); transform: rotate(${wind_directions[i]}deg);"></span> ${wind_speeds[i]} m / s</span>`;
             }
         }
     }
