@@ -246,9 +246,10 @@ var weather = {
                 }();
 
                 weather_icons[i].classList = `weather_icon wi wi-owm-${weather_ids[i]}`;
-                temperature_span_bars[i].innerHTML = `<span>${min_temps[i]}</span><span style="float: right;">${max_temps[i]}</span>`
-                temperature_span_bars[i].style.left = `${(min_temps[i] - min_min_temp) / (max_max_temp - min_min_temp) * 100}%`;
-                temperature_span_bars[i].style.width = `${(max_temps[i] - min_temps[i]) / (max_max_temp - min_min_temp) * 100}%`;
+                temperature_span_bars[i].innerHTML = `<span>${min_temps[i]}</span><div></div><span>${max_temps[i]}</span>`
+                temperature_span_bars[i].style.left = `calc(${(min_temps[i] - min_min_temp) / (max_max_temp - min_min_temp)} * (100% - 6ch))`;
+                temperature_span_bars[i].style.width = `calc(${(max_temps[i] - min_temps[i]) / (max_max_temp - min_min_temp)} * (100% - 6ch) + 6ch)`;
+
                 additional_info_containers[i].innerHTML =
                     `<span>${descriptions[i]}</span>` +
                     `<span><span class="wi wi-umbrella"></span> ${precipitations[i]} mm</span>` +

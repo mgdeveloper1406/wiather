@@ -218,18 +218,27 @@ header > button {
 
 .temperature_span_bar {
     position: absolute;
-    width: 0%;
+    width: 6ch;
     height: 100%;
     left: 50%;
     box-sizing: border-box;
-    padding: 0 var(--space--1);
-    color: #FFF;
-    background-color: hsl(185, 25%, 35%);
-    border-radius: calc(var(--space-1) / 2);
-    font-size: var(--space--1);
-    font-weight: 600;
     line-height: var(--space-1);
     transition: width 1s ease-in-out, left 1s ease-in-out;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+}
+
+.temperature_span_bar > div {
+    background-color: hsl(185, 25%, 35%);
+    border-radius: calc(var(--space--2) / 2);
+    height: var(--space--2);
+}
+
+.temperature_span_bar > span {
+    display: inline-block;
+    width: 3ch;
+    text-align: center;
 }
 
 #daily_forecast_container .additional_info_container {
