@@ -1,0 +1,16 @@
+{
+    "name": "Weather",
+    "short_name": "Weather",
+    "display": "standalone",
+    "start_url": "/",
+    "icons": [
+        {
+            "src": "icon.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable" 
+        }
+    ],
+    "theme_color": "hsl(185, 25%, 20%)",
+    "background_color": "hsl(185, 25%, 20%)"
+}
