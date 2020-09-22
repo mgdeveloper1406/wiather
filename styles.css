@@ -44,6 +44,10 @@ button {
     background-color: transparent;
 }
 
+button::before {
+    margin: 0 !important;
+}
+
 input {
     font-family: "Montserrat", sans-serif;
     font-size: var(--space-0);
@@ -57,6 +61,23 @@ input::placeholder {
     color: hsl(185, 25%, 85%);
     opacity: 1;
 }
+
+
+
+.round_corners {
+    border-radius: var(--space--2);
+}
+
+button, .clickable {
+    transition: background-color 0.2s;
+}
+
+button:active, .clickable:active {
+    background-color: rgba(0,0,0,0.2);
+    transition: background-color 0s;
+}
+
+
 
 
 
@@ -90,21 +111,21 @@ header {
 
 header > button {
     position: fixed;
-    top: 0;
-    height: var(--space-5);
-    width: var(--space-5);
+    top: calc((var(--space-5) - var(--space-3)) / 2);
+    height: var(--space-3);
+    width: var(--space-3);
     color: inherit;
     font-size: var(--space-1);
-    border-radius: 50%;
     z-index: 20;
 }
 
 #menu_button {
-    left: 0;
+    left: calc((var(--space-5) - var(--space-3)) / 2);
 }
 
 #favorite_button {
-    right: 0;
+    right: calc((var(--space-5) - var(--space-3)) / 2);
+    text-align: center;
 }
 
 #current_location_label {
@@ -184,7 +205,6 @@ header > button {
 
 #hourly_forecast_container, #daily_forecast_container {
     padding: var(--space-0);
-    border-radius: 5px;
     background-color: #FFFFFF;
     max-width: 500px;
     margin: auto;
@@ -304,11 +324,19 @@ header > button {
     grid-template-rows: var(--space-3);
     grid-template-columns: calc(100% - var(--space-3)) var(--space-3);
     background-color: hsl(185, 25%, 45%);
-    border-radius: 5px;
+}
+
+#location_input_container > button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#location_input_container > button:active {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 #location_input {
-    padding: 0 var(--space-0);
+    padding: 0 var(--space--1);
 }
 
 #locations_container > h3 {
@@ -316,22 +344,20 @@ header > button {
     line-height: var(--space-3);
 }
 
-#locations_container > #favorite_locations_container {
+
+#favorite_locations_container {
     display: grid;
     grid-template-columns: auto var(--space-3);
+    grid-auto-rows: var(--space-3);
+    grid-gap: 0 var(--space--2);
 }
 
-#locations_container > div > span {
-    display: block;
-    height: var(--space-3);
+#favorite_locations_container > span {
     line-height: var(--space-3);
-    transition: background-color 0.2s;
+    padding: 0 var(--space--1);
 }
 
-#locations_container > div > span:active {
-    background-color: rgba(0,0,0,0.1);
-    transition: none;
-}
+
 
 
 

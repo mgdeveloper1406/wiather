@@ -23,11 +23,11 @@
 
     <body>
         <header>
-            <button id="menu_button" class="icon-menu" onclick="ui.locations_container.show();"></button>
+            <button id="menu_button" class="icon-menu round_corners" onclick="ui.locations_container.show();"></button>
 
             <div id="current_location_label"></div>
 
-            <button id="favorite_button" class="icon-star-empty" onclick="locations.add_current_location();"></button>
+            <button id="favorite_button" class="icon-star-empty round_corners" onclick="locations.add_current_location();"></button>
         </header>
 
 
@@ -65,7 +65,7 @@
 
 
 
-            <div id="hourly_forecast_container">
+            <div id="hourly_forecast_container" class="round_corners">
                 <h2 data-translator-key="48_hours">48 Hours</h2>
 
                 <canvas id="hourly_forecast_chart"></canvas>
@@ -73,7 +73,7 @@
 
 
 
-            <div id="daily_forecast_container">
+            <div id="daily_forecast_container" class="round_corners">
                 <h2 data-translator-key="7_days">7 Days</h2>
             </div>
         </div>
@@ -85,9 +85,9 @@
         <div id="locations_container" class="hidden">
             <h2 data-translator-key="locations">Locations</h2>
 
-            <div id="location_input_container">
+            <div id="location_input_container" class="round_corners">
                 <input id="location_input" placeholder="Ort suchen"/>
-                <button class="icon-search" onclick="weather.search();"></button>
+                <button class="icon-search round_corners" onclick="weather.search();ui.locations_container.hide();"></button>
             </div>
 
             <h3 data-translator-key="favorite_locations">Favorite locations</h3>

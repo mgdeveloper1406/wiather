@@ -24,6 +24,8 @@ var ui = {
 
                 location_element.innerText = location;
 
+                location_element.classList.add("round_corners", "clickable");
+
                 location_element.addEventListener("click", async function() {
                     weather_info = await weather.fetch_weather_info(location);
                     weather.display_weather_info(weather_info);
@@ -33,7 +35,7 @@ var ui = {
 
                 let location_delete_element = document.createElement("button");
 
-                location_delete_element.classList.add("icon-delete");
+                location_delete_element.classList.add("icon-delete", "round_corners");
 
                 location_delete_element.addEventListener("click", function() {
                     locations.remove_location(location);
