@@ -19,29 +19,37 @@ var ui = {
 
             favorite_locations_container.innerHTML = "";
 
-            for (let location of configuration.data.favorite_locations) {
-                let location_element = document.createElement("span");
+            var favorite_locations = configuration.data.favorite_locations;
 
-                location_element.innerText = location;
+            if (favorite_locations.length > 0) {
+                for (let location of favorite_locations) {
+                    let location_element = document.createElement("span");
 
-                location_element.classList.add("round_corners", "clickable");
+                    location_element.innerText = location;
 
-                location_element.addEventListener("click", async function() {
-                    weather_info = await weather.fetch_weather_info(location);
-                    weather.display_weather_info(weather_info);
+                    location_element.classList.add("round_corners", "clickable");
 
-                    ui.menu.hide();
-                });
+                    location_element.addEventListener("click", async function() {
+                        weather_info = await weather.fetch_weather_info(location);
+                        weather.display_weather_info(weather_info);
 
-                let location_delete_element = document.createElement("button");
+                        ui.menu.hide();
+                    });
 
-                location_delete_element.classList.add("icon-delete", "round_corners");
+                    let location_delete_element = document.createElement("button");
 
-                location_delete_element.addEventListener("click", function() {
-                    locations.remove_location(location);
-                });
+                    location_delete_element.classList.add("icon-delete", "round_corners");
 
-                favorite_locations_container.append(location_element, location_delete_element);
+                    location_delete_element.addEventListener("click", function() {
+                        locations.remove_location(location);
+                    });
+
+                    favorite_locations_container.append(location_element, location_delete_element);
+                }
+            }
+
+            else {
+                favorite_locations_container.innerHTML = `<i>${translator.translate_key("no_favorite_locations", configuration.data.language)}</i>`;
             }
         }
     },

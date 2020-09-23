@@ -28,7 +28,8 @@ var translator = {
             "imperial": "Imperial",
             "other": "Other",
             "delete_personal_data": "Delete personal data",
-            "delete_personal_data_confirmation": "Your personal data is going to be removed from this application."
+            "delete_personal_data_confirmation": "Your personal data is going to be removed from this application.",
+            "no_favorite_locations": "No favorite locations"
         },
 
         "de": {
@@ -55,7 +56,8 @@ var translator = {
             "imperial": "Imperial",
             "other": "Andere",
             "delete_personal_data": "Persönliche Daten löschen",
-            "delete_personal_data_confirmation": "Ihre persönlichen Daten werden von dieser Anwendung gelöscht."
+            "delete_personal_data_confirmation": "Ihre persönlichen Daten werden von dieser Anwendung gelöscht.",
+            "no_favorite_locations": "Keine Lieblingsorte"
         }
     },
 
