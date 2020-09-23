@@ -12,6 +12,7 @@ var configuration = {
             configuration.data = {
                 language: "en",
                 units: "metric",
+                last_location: "London",
                 favorite_locations: []
             };
 

@@ -13,6 +13,6 @@ window.onload = async function() {
         translator.translate_page(configuration.data.language);
     }
 
-    var weather_info = await weather.fetch_weather_info(locations.current_location);
+    var weather_info = await weather.fetch_weather_info(configuration.data.last_location);
     weather.display_weather_info(weather_info)
 };

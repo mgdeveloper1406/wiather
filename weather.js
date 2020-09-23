@@ -31,6 +31,9 @@ var weather = {
             }&appid=${weather.api_key}&units=${configuration.data.units}&lang=${configuration.data.language}`);
 
             if (current_res.ok) {
+                configuration.data.last_location = city_name;
+                configuration.save();
+
                 var current_weather = await current_res.json();
                 return current_weather;
             }
