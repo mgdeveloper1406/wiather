@@ -354,8 +354,8 @@ header > button {
     padding: 0 var(--space--1);
 }
 
-#favorite_locations_container, #language_inputs_container, #units_inputs_container {
-    margin-top: var(--space--3);
+#menu > h3 {
+    margin-bottom: var(--space--3);
 }
 
 #favorite_locations_container {
@@ -380,6 +380,9 @@ header > button {
     padding-left: var(--space--1);
 }
 
+#data_delete_button {
+    height: var(--space-3);
+}
 
 
 

@@ -25,7 +25,10 @@ var translator = {
             "german": "German",
             "units": "Units",
             "metric": "Metric",
-            "imperial": "Imperial"
+            "imperial": "Imperial",
+            "other": "Other",
+            "delete_personal_data": "Delete personal data",
+            "delete_personal_data_confirmation": "Your personal data is going to be removed from this application."
         },
 
         "de": {
@@ -49,7 +52,10 @@ var translator = {
             "german": "Deutsch",
             "units": "Einheiten",
             "metric": "Metrisch",
-            "imperial": "Imperial"
+            "imperial": "Imperial",
+            "other": "Andere",
+            "delete_personal_data": "Persönliche Daten löschen",
+            "delete_personal_data_confirmation": "Ihre persönlichen Daten werden von dieser Anwendung gelöscht."
         }
     },
 

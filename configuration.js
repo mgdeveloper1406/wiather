@@ -29,6 +29,8 @@ var configuration = {
     },
 
     delete: function() {
-        localStorage.removeItem("weather_config");
+        if (confirm(translator.translate_key("delete_personal_data_confirmation", configuration.data.language))) {
+            localStorage.removeItem("weather_config");
+        }
     }
 };
