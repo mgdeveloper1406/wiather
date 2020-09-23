@@ -5,16 +5,15 @@
 var locations = {
     current_location: "Berlin",
 
-    favorites: ["London", "Paris", "Berlin", "Rome"],
-
     add_current_location: function() {
-        if (locations.favorites.indexOf(locations.current_location) == -1) {
-            locations.favorites.push(locations.current_location);
+        if (configuration.data.favorite_locations.indexOf(locations.current_location) == -1) {
+            configuration.data.favorite_locations.push(locations.current_location);
+            configuration.save();
         }
 
         locations.refresh_favorite_button();
 
-        ui.menu.fill();
+        ui.menu.fill_favorite_locations_container();
     },
 
     remove_current_location: function() {
@@ -22,19 +21,20 @@ var locations = {
     },
 
     remove_location: function(location) {
-        var favorite_index = locations.favorites.indexOf(location)
+        var favorite_index = configuration.data.favorite_locations.indexOf(location)
 
         if (favorite_index >= 0) {
-            locations.favorites.splice(favorite_index, 1);
+            configuration.data.favorite_locations.splice(favorite_index, 1);
+            configuration.save();
         }
 
         locations.refresh_favorite_button();
 
-        ui.menu.fill();
+        ui.menu.fill_favorite_locations_container();
     },
 
     refresh_favorite_button: function() {
-        if (locations.favorites.indexOf(locations.current_location) >= 0) {
+        if (configuration.data.favorite_locations.indexOf(locations.current_location) >= 0) {
             var favorite_button = document.getElementById("favorite_button");
             favorite_button.classList.remove("icon-star-empty");
             favorite_button.classList.add("icon-star");

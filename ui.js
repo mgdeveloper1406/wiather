@@ -19,7 +19,7 @@ var ui = {
 
             favorite_locations_container.innerHTML = "";
 
-            for (let location of locations.favorites) {
+            for (let location of configuration.data.favorite_locations) {
                 let location_element = document.createElement("span");
 
                 location_element.innerText = location;
@@ -50,6 +50,7 @@ var ui = {
         ui.menu.fill_favorite_locations_container();
         fill_daily_forecast_container();
         add_search_input_event();
+        setup_settings_inputs();
         setup_weather_chart();
 
 
@@ -82,6 +83,37 @@ var ui = {
                 element.addEventListener("click", function(e) {
                     element.getElementsByClassName("additional_info_container")[0].classList.toggle("hidden")
                 });
+            }
+        }
+
+
+        function setup_settings_inputs() {
+            var language_inputs = document.querySelectorAll("#language_inputs_container > input");
+
+            for (let input of language_inputs) {
+                input.addEventListener("change", function() {
+
+                    configuration.data.language = input.value;
+                    configuration.save();
+                });
+
+                if (input.value == configuration.data.language) {
+                    input.checked = true;
+                }
+            }
+
+            var unit_inputs = document.querySelectorAll("#units_inputs_container > input");
+
+            for (let input of unit_inputs) {
+                input.addEventListener("change", function() {
+
+                    configuration.data.units = input.value;
+                    configuration.save();
+                });
+
+                if (input.value == configuration.data.units) {
+                    input.checked = true;
+                }
             }
         }
 
@@ -141,7 +173,15 @@ var ui = {
                             beforeLabel: function(tooltipItem, data) {
                                 var data = data.datasets[0].data;
 
-                                var temperature = data[tooltipItem.index].y + " °C";
+                                var temperature = data[tooltipItem.index].y + function() {
+                                    if (configuration.data.units == "metric") {
+                                        return " °C";
+                                    }
+
+                                    else if (configuration.data.units == "imperial") {
+                                        return " °F";
+                                    }
+                                }();
 
                                 return temperature;
                             },

@@ -28,7 +28,7 @@ var weather = {
 
         async function get_current_weather(city_name) {
             let current_res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city_name
-            }&appid=${weather.api_key}&units=metric&lang=${translator.language}`);
+            }&appid=${weather.api_key}&units=${configuration.data.units}&lang=${configuration.data.language}`);
 
             if (current_res.ok) {
                 var current_weather = await current_res.json();
@@ -44,7 +44,7 @@ var weather = {
 
         async function get_forecast(coordinates) {
             let response = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat
-            }&lon=${coordinates.lon}&exclude=current,minutely&appid=${weather.api_key}&units=metric&lang=${translator.language}`);
+            }&lon=${coordinates.lon}&exclude=current,minutely,alerts&appid=${weather.api_key}&units=${configuration.data.units}&lang=${configuration.data.language}`);
 
             if (response.ok) {
                 var forecast = await response.json();
@@ -239,10 +239,10 @@ var weather = {
             for (let i = 0; i < dates.length; i++) {
                 day_labels[i].innerText = function() {
                     if (i > 0) {
-                        return translator.translate_key(weekdays[dates[i].getDay()], translator.language);
+                        return translator.translate_key(weekdays[dates[i].getDay()], configuration.data.language);
                     }
 
-                    return translator.translate_key("today", translator.language);
+                    return translator.translate_key("today", configuration.data.language);
                 }();
 
                 weather_icons[i].classList = `weather_icon wi wi-owm-${weather_ids[i]}`;

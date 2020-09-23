@@ -3,8 +3,6 @@
 
 
 var translator = {
-    language: "en",
-
     dictionary: {
         "en": {
             "weather": "Weather",
