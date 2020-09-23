@@ -3,18 +3,18 @@
 
 
 var ui = {
-    locations_container: {
+    menu: {
         show: function() {
-            document.getElementById("locations_container").classList.remove("hidden");
+            document.getElementById("menu").classList.remove("hidden");
             document.getElementById("overlay").classList.remove("hidden");
         },
 
         hide: function() {
-            document.getElementById("locations_container").classList.add("hidden");
+            document.getElementById("menu").classList.add("hidden");
             document.getElementById("overlay").classList.add("hidden");
         },
 
-        fill: function() {
+        fill_favorite_locations_container: function() {
             var favorite_locations_container = document.getElementById("favorite_locations_container");
 
             favorite_locations_container.innerHTML = "";
@@ -30,7 +30,7 @@ var ui = {
                     weather_info = await weather.fetch_weather_info(location);
                     weather.display_weather_info(weather_info);
 
-                    ui.locations_container.hide();
+                    ui.menu.hide();
                 });
 
                 let location_delete_element = document.createElement("button");
@@ -47,7 +47,7 @@ var ui = {
     },
 
     setup: function() {
-        ui.locations_container.fill();
+        ui.menu.fill_favorite_locations_container();
         fill_daily_forecast_container();
         add_search_input_event();
         setup_weather_chart();
@@ -57,7 +57,7 @@ var ui = {
             document.getElementById("location_input").addEventListener("keypress", function(e) {
                 if (e.keyCode == 13) {
                     weather.search();
-                    ui.locations_container.hide();
+                    ui.menu.hide();
                 }
             });
         }

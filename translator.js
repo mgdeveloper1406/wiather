@@ -20,7 +20,14 @@ var translator = {
             "thu": "Thu",
             "fri": "Fri",
             "sat": "Sat",
-            "sun": "Sun"
+            "sun": "Sun",
+            "settings": "Settings",
+            "language": "Language",
+            "english": "English",
+            "german": "German",
+            "units": "Units",
+            "metric": "Metric",
+            "imperial": "Imperial"
         },
 
         "de": {
@@ -37,7 +44,14 @@ var translator = {
             "thu": "Don",
             "fri": "Fre",
             "sat": "Sam",
-            "sun": "Son"
+            "sun": "Son",
+            "settings": "Einstellungen",
+            "language": "Sprache",
+            "english": "Englisch",
+            "german": "Deutsch",
+            "units": "Einheiten",
+            "metric": "Metrisch",
+            "imperial": "Imperial"
         }
     },
 

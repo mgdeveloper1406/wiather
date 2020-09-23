@@ -23,6 +23,7 @@
     --space-0: var(--base);
     --space--1: calc(var(--space-0) / var(--factor));
     --space--2: calc(var(--space--1) / var(--factor));
+    --space--3: calc(var(--space--2) / var(--factor));
 }
 
 
@@ -62,6 +63,9 @@ input::placeholder {
     opacity: 1;
 }
 
+input[type="radio"] {
+    margin: 0;
+}
 
 
 .round_corners {
@@ -288,7 +292,7 @@ header > button {
     transition: opacity 0.3s, transform 0s 0.3s;
 }
 
-#locations_container.hidden {
+#menu.hidden {
     transform: translateX(-100%);
 }
 
@@ -304,18 +308,29 @@ header > button {
     z-index: 10;
 }
 
-#locations_container {
+#menu {
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
     width: 66%;
-    padding: var(--space-0);
+    padding: 0 var(--space-0);
     box-sizing: border-box;
     color: #FFF;
     background-color: hsl(185, 25%, 30%);
     z-index: 20;
     transition: transform 0.3s;
+}
+
+#menu > h2, h3 {
+    margin-top: var(--space-0);
+}
+
+#menu > .separator {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-top: var(--space--2);
 }
 
 #location_input_container {
@@ -339,11 +354,9 @@ header > button {
     padding: 0 var(--space--1);
 }
 
-#locations_container > h3 {
-    margin: var(--space-0) 0 0 0;
-    line-height: var(--space-3);
+#favorite_locations_container, #language_inputs_container, #units_inputs_container {
+    margin-top: var(--space--3);
 }
-
 
 #favorite_locations_container {
     display: grid;
@@ -357,6 +370,15 @@ header > button {
     padding: 0 var(--space--1);
 }
 
+#language_inputs_container, #units_inputs_container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-auto-rows: var(--space-1);
+    grid-gap: 0 var(--space--2);
+    align-items: center;
+    justify-content: center;
+    padding-left: var(--space--1);
+}
 
 
 
@@ -380,12 +402,12 @@ header > button {
         grid-column: 2 / 3;
     }
 
-    #locations_container {
+    #menu {
         display: block;
         width: 300px;
     }
 
-    #locations_container.hidden {
+    #menu.hidden {
         transform: none;
         transition: none;
     }

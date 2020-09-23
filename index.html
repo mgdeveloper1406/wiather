@@ -23,7 +23,7 @@
 
     <body>
         <header>
-            <button id="menu_button" class="icon-menu round_corners" onclick="ui.locations_container.show();"></button>
+            <button id="menu_button" class="icon-menu round_corners" onclick="ui.menu.show();"></button>
 
             <div id="current_location_label"></div>
 
@@ -80,18 +80,42 @@
 
 
 
-        <div id="overlay" onclick="ui.locations_container.hide();" class="hidden"></div>
+        <div id="overlay" onclick="ui.menu.hide();" class="hidden"></div>
 
-        <div id="locations_container" class="hidden">
+        <div id="menu" class="hidden">
             <h2 data-translator-key="locations">Locations</h2>
 
             <div id="location_input_container" class="round_corners">
                 <input id="location_input" placeholder="Ort suchen"/>
-                <button class="icon-search round_corners" onclick="weather.search();ui.locations_container.hide();"></button>
+                <button class="icon-search round_corners" onclick="weather.search();ui.menu.hide();"></button>
             </div>
 
             <h3 data-translator-key="favorite_locations">Favorite locations</h3>
             <div id="favorite_locations_container"></div>
+
+            <div class="separator"></div>
+
+            <h2 data-translator-key="settings">Settings</h2>
+
+            <h3 data-translator-key="language">Language</h3>
+
+            <div id="language_inputs_container">
+                <input id="language_input_english" name="language_input" value="en" type="radio"/>
+                <label for="language_input_english" data-translator-key="english">English</label>
+
+                <input id="language_input_german" name="language_input" value="de" type="radio"/>
+                <label for="language_input_german" data-translator-key="german">German</label>
+            </div>
+
+            <h3 data-translator-key="units">Units</h3>
+
+            <div id="units_inputs_container">
+                <input id="unit_input_metric" name="units_input" value="metric" type="radio"/>
+                <label for="unit_input_metric" data-translator-key="metric">Metric</label>
+
+                <input id="unit_input_imperial" name="units_input" value="imperial" type="radio"/>
+                <label for="unit_input_imperial" data-translator-key="imperial">Imperial</label>
+            </div>
         </div>
     </body>
 </html>

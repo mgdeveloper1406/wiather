@@ -14,7 +14,7 @@ var locations = {
 
         locations.refresh_favorite_button();
 
-        ui.locations_container.fill();
+        ui.menu.fill();
     },
 
     remove_current_location: function() {
@@ -30,7 +30,7 @@ var locations = {
 
         locations.refresh_favorite_button();
 
-        ui.locations_container.fill();
+        ui.menu.fill();
     },
 
     refresh_favorite_button: function() {
