@@ -12,7 +12,7 @@ var configuration = {
             configuration.data = {
                 language: "en",
                 units: "metric",
-                favorite_locations: ["London", "Paris", "Berlin", "Rome"]
+                favorite_locations: []
             };
 
             configuration.save();
