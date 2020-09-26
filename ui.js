@@ -96,11 +96,20 @@ var ui = {
 
 
         function setup_settings_inputs() {
+            var settings_inputs = document.querySelectorAll("#language_inputs_container > input, #units_inputs_container > input")
+
+            for (let input of settings_inputs) {
+                input.addEventListener("change", function() {
+                    if (confirm(translator.translate_key("confirm_page_refresh", configuration.data.language))) {
+                        window.location.reload();
+                    }
+                });
+            }
+
             var language_inputs = document.querySelectorAll("#language_inputs_container > input");
 
             for (let input of language_inputs) {
                 input.addEventListener("change", function() {
-
                     configuration.data.language = input.value;
                     configuration.save();
                 });
@@ -114,7 +123,6 @@ var ui = {
 
             for (let input of unit_inputs) {
                 input.addEventListener("change", function() {
-
                     configuration.data.units = input.value;
                     configuration.save();
                 });

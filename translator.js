@@ -29,7 +29,8 @@ var translator = {
             "other": "Other",
             "delete_personal_data": "Delete personal data",
             "delete_personal_data_confirmation": "Your personal data is going to be removed from this application.",
-            "no_favorite_locations": "No favorite locations"
+            "no_favorite_locations": "No favorite locations",
+            "confirm_page_refresh": "The page is going to be refreshed in order to apply the changes."
         },
 
         "de": {
@@ -57,7 +58,8 @@ var translator = {
             "other": "Andere",
             "delete_personal_data": "Persönliche Daten löschen",
             "delete_personal_data_confirmation": "Ihre persönlichen Daten werden von dieser Anwendung gelöscht.",
-            "no_favorite_locations": "Keine Lieblingsorte"
+            "no_favorite_locations": "Keine Lieblingsorte",
+            "confirm_page_refresh": "Die Seite wird neu geladen, um die Änderungen zu übernehmen."
         }
     },
 
