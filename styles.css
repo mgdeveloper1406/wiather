@@ -314,7 +314,7 @@ header > button {
     top: 0;
     left: 0;
     height: 100%;
-    width: max(280px, 66%);
+    width: min(300px, 85%);
     padding: 0 var(--space-0);
     box-sizing: border-box;
     color: #FFF;
