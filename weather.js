@@ -20,7 +20,8 @@ var weather = {
         var response = {
             "current": current_weather,
             "hourly": forecast.hourly,
-            "daily": forecast.daily
+            "daily": forecast.daily,
+            "timezone_offset": forecast.timezone_offset
         };
 
         return response;
@@ -107,16 +108,18 @@ var weather = {
         }
 
 
-        async function display_hourly_forecast(hourly_forecast) {
+        function display_hourly_forecast(hourly_forecast) {
             var forecast_data = [];
             var midnight_data = [];
-
-            precipitations = [];
 
             var pointStyles = [];
 
             for (let i = 0; i < hourly_forecast.length; i++) {
-                var time = new Date(parseInt(hourly_forecast[i].dt.toString() + "000"));
+                var forecast_time_utc = hourly_forecast[i].dt * 1000;
+                var timezone_offset_forecast_location = weather_info.timezone_offset * 1000;
+                var timezone_offset_user_location = (new Date().getTimezoneOffset() * 60000);
+                var time = new Date(forecast_time_utc + timezone_offset_user_location + timezone_offset_forecast_location);
+
                 var temperature = hourly_forecast[i].temp;
                 var weather = hourly_forecast[i].weather[0].id;
                 var description = hourly_forecast[i].weather[0].description
@@ -148,8 +151,6 @@ var weather = {
                 if (time.getHours() == 0) {
                     midnight_data.push({"x": time, "y": 1});
                 }
-
-                //precipitations.push({"x": time, "y": precipitation});
             }
 
             hourly_forecast_chart.data.datasets[0].pointStyle = pointStyles;
@@ -194,8 +195,9 @@ var weather = {
             var min_min_temp;
             var max_max_temp;
 
-            for (let day of daily_forecast) {                
-                dates.push(new Date(parseInt(day.dt.toString() + "000")));
+            for (let day of daily_forecast) {
+                dates.push(new Date(day.dt * 1000));
+
                 min_temps.push(Math.round(day.temp.min));
                 max_temps.push(Math.round(day.temp.max));
                 weather_ids.push(day.weather[0].id);
