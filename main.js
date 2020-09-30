@@ -14,5 +14,6 @@ window.onload = async function() {
     }
 
     var weather_info = await weather.fetch_weather_info(configuration.data.last_location);
-    weather.display_weather_info(weather_info)
+    weather.display_weather_info(weather_info);
+    weather.display_weather_info(weather_info);
 };

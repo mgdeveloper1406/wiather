@@ -159,6 +159,13 @@ var ui = {
                         clip: 0,
                         fill: "origin",
                         tension: 0.1
+                    },
+                    {
+                        data: [],
+                        yAxisID: "A2",
+                        type: "bar",
+                        barThickness: 1,
+                        backgroundColor: "rgba(0,0,0,0.1)"
                     }]
                 },
 
@@ -245,6 +252,7 @@ var ui = {
                         }],
 
                         yAxes: [{
+                            id: "A1",
                             ticks: {
                                 maxTicksLimit: 6,
                                 fontFamily: "Montserrat",
@@ -253,8 +261,15 @@ var ui = {
                                     return value + "°";
                                 }
                             },
-                            id: "A1",
-                            position: "left",
+                            position: "left"
+                        },
+                        {
+                            id: "A2",
+                            display: false,
+                            ticks: {
+                                min: 0,
+                                max: 1,
+                            }
                         }]
                     }
                 }

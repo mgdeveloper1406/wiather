@@ -108,9 +108,8 @@ var weather = {
 
 
         async function display_hourly_forecast(hourly_forecast) {
-            var short_forecast_data = [];
-            var times = [];
-            var temperatures = [];
+            var forecast_data = [];
+            var midnight_data = [];
 
             precipitations = [];
 
@@ -144,14 +143,20 @@ var weather = {
                     return result;
                 }();
 
-                short_forecast_data.push({"x": time, "y": temperature, "description": description, "precipitation": precipitation});
+                forecast_data.push({"x": time, "y": temperature, "description": description, "precipitation": precipitation});
+
+                if (time.getHours() == 0) {
+                    midnight_data.push({"x": time, "y": 1});
+                }
+
                 //precipitations.push({"x": time, "y": precipitation});
             }
 
             hourly_forecast_chart.data.datasets[0].pointStyle = pointStyles;
-            hourly_forecast_chart.data.datasets[0].data = short_forecast_data;
+            hourly_forecast_chart.data.datasets[0].data = forecast_data;
             hourly_forecast_chart.update();
 
+            hourly_forecast_chart.data.datasets[1].data = midnight_data;
 
             function generate_canvas_from_weather(weather_id) {
                 var icon_code = icon_map[`wi_owm_${weather_id}`];
