@@ -155,9 +155,9 @@ var weather = {
 
             hourly_forecast_chart.data.datasets[0].pointStyle = pointStyles;
             hourly_forecast_chart.data.datasets[0].data = forecast_data;
-            hourly_forecast_chart.update();
-
             hourly_forecast_chart.data.datasets[1].data = midnight_data;
+
+            hourly_forecast_chart.update();
 
             function generate_canvas_from_weather(weather_id) {
                 var icon_code = icon_map[`wi_owm_${weather_id}`];
