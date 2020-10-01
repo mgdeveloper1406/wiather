@@ -376,6 +376,9 @@ header > button {
 #favorite_locations_container > span {
     line-height: var(--space-3);
     padding: 0 var(--space--1);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 #language_inputs_container, #units_inputs_container {
