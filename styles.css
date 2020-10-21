@@ -208,14 +208,14 @@ header > button {
 
 
 
-#hourly_forecast_container, #daily_forecast_container {
+#hourly_forecast_container, #hourly_precipitation_container, #daily_forecast_container {
     padding: var(--space-0);
     background-color: #FFFFFF;
     max-width: 500px;
     margin: auto;
 }
 
-#hourly_forecast_chart {
+#hourly_forecast_chart, #hourly_precipitation_container, #hourly_precipitation_chart {
     margin-top: var(--space--1);
 }
 
@@ -442,7 +442,7 @@ header > button {
         grid-column: 1 / 3;
     }
     
-    #hourly_forecast_container, #daily_forecast_container {
+    #hourly_forecast_container, #hourly_precipitation_container, #daily_forecast_container {
         margin: 0;
         max-width: initial;
     }

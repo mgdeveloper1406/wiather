@@ -7,6 +7,7 @@ var translator = {
         "en": {
             "weather": "Weather",
             "48_hours": "48 hours",
+            "48_hour_precipitation": "48 hour precipitation",
             "7_days": "7 days",
             "locations": "Locations",
             "favorite_locations": "Favorite Locations",
@@ -27,6 +28,8 @@ var translator = {
             "metric": "Metric",
             "imperial": "Imperial",
             "other": "Other",
+            "rain_probability": "Rain probability",
+            "precipitation": "Precipitation",
             "delete_personal_data": "Delete personal data",
             "delete_personal_data_confirmation": "Your personal data is going to be removed from this application.",
             "no_favorite_locations": "No favorite locations",
@@ -36,6 +39,7 @@ var translator = {
         "de": {
             "weather": "Wetter",
             "48_hours": "48 Stunden",
+            "48_hour_precipitation": "48 Stunden Regen",
             "7_days": "7 Tage",
             "locations": "Orte",
             "favorite_locations": "Lieblingsorte",
@@ -56,6 +60,8 @@ var translator = {
             "metric": "Metrisch",
             "imperial": "Imperial",
             "other": "Andere",
+            "rain_probability": "Regenwahrscheinlichkeit",
+            "precipitation": "Niederschlag",
             "delete_personal_data": "Persönliche Daten löschen",
             "delete_personal_data_confirmation": "Ihre persönlichen Daten werden von dieser Anwendung gelöscht.",
             "no_favorite_locations": "Keine Lieblingsorte",

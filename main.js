@@ -3,6 +3,7 @@
 
 
 var hourly_forecast_chart;
+var hourly_precipitation_chart;
 
 window.onload = async function() {
     configuration.load();
