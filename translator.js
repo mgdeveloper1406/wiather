@@ -6,6 +6,7 @@ var translator = {
     dictionary: {
         "en": {
             "weather": "Weather",
+            "current_weather": "Current weather",
             "48_hours": "48 hours",
             "7_days": "7 days",
             "locations": "Locations",
@@ -35,6 +36,7 @@ var translator = {
 
         "de": {
             "weather": "Wetter",
+            "current_weather": "Aktuelles Wetter",
             "48_hours": "48 Stunden",
             "7_days": "7 Tage",
             "locations": "Orte",

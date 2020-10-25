@@ -34,7 +34,9 @@
 
 
         <div id="weather_container">
-            <div id="current_weather_container">
+            <div id="current_weather_container" class="round_corners">
+                <h2 data-translator-key="current_weather">Aktuelles Wetter</h2>
+
                 <div id="current_weather_primary_grid">
                     <div id="current_temperature_label"></div>
                     <div id="current_weather_icon" class="wi"></div>
@@ -69,7 +71,9 @@
             <div id="hourly_forecast_container" class="round_corners">
                 <h2 data-translator-key="48_hours">48 Hours</h2>
 
-                <canvas id="hourly_forecast_chart"></canvas>
+                <div style="position: relative;">
+                    <canvas id="hourly_forecast_chart"></canvas>
+                </div>
             </div>
 
 

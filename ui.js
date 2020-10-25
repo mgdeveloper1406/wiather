@@ -149,11 +149,12 @@ var ui = {
                         borderWidth: 4,
                         borderColor: "hsl(185, 25%, 30%)",
                         backgroundColor: "hsla(185, 25%, 50%, 0.5)",
+                        hoverBackgroundColor: "hsl(185, 25%, 30%)",
                         pointRadius: 0,
                         pointBorderWidth: 0,
                         pointHitRadius: 5,
                         pointHoverRadius: 8,
-                        pointHoverBorderWidth: 2,
+                        pointHoverBorderWidth: 0,
                         borderCapStyle: "round",
                         lineJointStyle: "round",
                         clip: 0,
@@ -179,10 +180,12 @@ var ui = {
                     },
 
                     responsive: true,
+                    // maintainAspectRatio: false,
 
                     hover: {
                         mode: "index",
-                        intersect: false
+                        intersect: false,
+                        animationDuration: 00
                     },
 
                     tooltips: {

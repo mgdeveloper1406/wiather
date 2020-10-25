@@ -28,6 +28,12 @@
 
 
 
+/* General styles */
+
+* {
+    box-sizing: border-box;
+}
+
 h2 {
     margin: 0;
     font-size: var(--space-1);
@@ -40,9 +46,9 @@ h3 {
 
 button {
     font-size: var(--space-0);
-    font-family: "Montserrat", sans-serif;
+    font-family: inherit;
     border: 0;
-    color: #FFFFFF;
+    color: inherit;
     background-color: transparent;
 }
 
@@ -51,16 +57,14 @@ button::before {
 }
 
 input {
-    font-family: "Montserrat", sans-serif;
+    font-family: inherit;
     font-size: var(--space-0);
-    box-sizing: border-box;
     border: 0;
-    color: #FFFFFF;
     background-color: transparent;
 }
 
 input::placeholder {
-    color: hsl(185, 25%, 85%);
+    color: rgba(0,0,0,0.5);
     opacity: 1;
 }
 
@@ -78,28 +82,28 @@ button, .clickable {
 }
 
 button:active, .clickable:active {
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.1);
     transition: background-color 0s;
 }
 
 
-
-
-
 body {
     margin: 0;
+    padding: 0 var(--space-0) var(--space-0) var(--space-0);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: var(--space-5) auto;
+    grid-gap: var(--space-0);
     font-family: "Montserrat", sans-serif;
     font-size: var(--space-0);
     color: hsl(185, 25%, 20%);
     line-height: var(--factor);
-    background-color: hsl(185, 25%, 40%);
+    background-color: hsl(0, 0%, 95%);
 }
 
 
 
-header, #current_weather_container {
-    color: #FFFFFF;
-}
+/* Header */
 
 header {
     position: fixed;
@@ -109,9 +113,8 @@ header {
     height: var(--space-5);
     line-height: var(--space-5);
     text-align: center;
-    box-sizing: border-box;
     z-index: 10;
-    background-color: hsl(185, 25%, 40%);
+    background-color: #FFFFFF;
 }
 
 header > button {
@@ -119,9 +122,7 @@ header > button {
     top: calc((var(--space-5) - var(--space-3)) / 2);
     height: var(--space-3);
     width: var(--space-3);
-    color: inherit;
     font-size: var(--space-1);
-    z-index: 20;
 }
 
 #menu_button {
@@ -130,7 +131,6 @@ header > button {
 
 #favorite_button {
     right: calc((var(--space-5) - var(--space-3)) / 2);
-    text-align: center;
 }
 
 #current_location_label {
@@ -140,18 +140,41 @@ header > button {
 
 
 
-
+/* Weather */
 
 #weather_container {
-    margin-top: var(--space-5);
-    padding: 0 var(--space-0) var(--space-0) var(--space-0);
-    box-sizing: border-box;
+    grid-row: 2 / 3;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: var(--space-0);
+    height: min-content;
+    justify-items: center;
+}
+
+
+
+/* Current weather container */
+
+#current_weather_container, #hourly_forecast_container, #daily_forecast_container {
+    width: 100%;
 }
 
 #current_weather_container {
-    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    grid-gap: var(--space-0);
     text-align: center;
-    padding: var(--space-2) 0 var(--space-3) 0;
+    color: #FFFFFF;
+    background-color: hsl(185, 25%, 35%);
+    max-width: 600px;
+    padding: var(--space-0);
+    padding-bottom: var(--space-2);
+}
+
+#current_weather_container > h2 {
+    grid-column: 1 / 2;
+    text-align: left;
 }
 
 #current_weather_primary_grid {
@@ -176,10 +199,6 @@ header > button {
     grid-column: 1 / 3;
 }
 
-
-
-
-
 #current_weather_secondary_grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -187,7 +206,6 @@ header > button {
     grid-gap: var(--space--2) var(--space-0);
     width: max-content;
     margin: auto;
-    margin-top: var(--space-0);
 }
 
 #current_weather_secondary_grid > div {
@@ -206,21 +224,18 @@ header > button {
 
 
 
-
+/* Forecast containers */
 
 #hourly_forecast_container, #daily_forecast_container {
     padding: var(--space-0);
     background-color: #FFFFFF;
-    max-width: 500px;
-    margin: auto;
+    height: min-content;
 }
 
 #hourly_forecast_chart {
     margin-top: var(--space--1);
-}
-
-#daily_forecast_container {
-    margin-top: var(--space-0);
+    width: 100% !important;
+    height: 100% !important;
 }
 
 #daily_forecast_container > .daily_forecast_row {
@@ -246,7 +261,6 @@ header > button {
     width: 6ch;
     height: 100%;
     left: 50%;
-    box-sizing: border-box;
     line-height: var(--space-1);
     transition: width 1s ease-in-out, left 1s ease-in-out;
     display: grid;
@@ -272,7 +286,6 @@ header > button {
     grid-column: 1 / 4;
     font-size: var(--space--1);
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
     grid-template-columns: auto auto auto;
     grid-gap: var(--space-0);
     justify-items: center;
@@ -285,7 +298,7 @@ header > button {
 
 
 
-
+/* Menu */
 
 #overlay.hidden {
     opacity: 0;
@@ -316,9 +329,7 @@ header > button {
     height: 100%;
     width: min(300px, 85%);
     padding: 0 var(--space-0);
-    box-sizing: border-box;
-    color: #FFF;
-    background-color: hsl(185, 25%, 30%);
+    background-color: #FFFFFF;
     z-index: 20;
     transition: transform 0.3s;
 }
@@ -330,7 +341,7 @@ header > button {
 #menu > .separator {
     width: 100%;
     height: 1px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(0, 0, 0, 0.2);
     margin-top: var(--space--2);
 }
 
@@ -339,7 +350,7 @@ header > button {
     display: grid;
     grid-template-rows: var(--space-3);
     grid-template-columns: calc(100% - var(--space-3)) var(--space-3);
-    background-color: hsl(185, 25%, 45%);
+    background-color: rgba(0,0,0,0.1);
 }
 
 #location_input_container > button {
@@ -397,15 +408,26 @@ header > button {
 
 
 
-@media only screen and (min-width: 900px) {
-    body {
-        display: grid;
-        grid-template-columns: 300px auto;
+/* Media queries */
+
+@media only screen and (min-width: 600px) {
+    #current_weather_container {
+        grid-template-columns: 1fr 1fr;
     }
 
-    header {
-        left: 300px;
-        width: calc(100% - 300px);
+    #current_weather_container > h2 {
+        grid-column: 1 / 3;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    body {
+        grid-template-columns: 300px 1fr;
+    }
+
+    #current_location_label {
+        text-align: left;
+        margin-left: var(--space-0);
     }
 
     #menu_button {
@@ -414,11 +436,19 @@ header > button {
 
     #weather_container {
         grid-column: 2 / 3;
+
     }
 
     #menu {
+        position: sticky;
+        top: calc(var(--space-5) + var(--space-0));
+        grid-row: 2 / 3;
+        grid-column: 1 / 2;
+        width: 100%;
         display: block;
-        width: 300px;
+        height: min-content;
+        padding-bottom: var(--space-0);
+        border-radius: var(--space--2);
     }
 
     #menu.hidden {
@@ -431,17 +461,15 @@ header > button {
     }
 }
 
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width: 1200px) {
     #weather_container {
-        display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-gap: var(--space-0);
     }
 
     #current_weather_container {
         grid-column: 1 / 3;
     }
-    
+
     #hourly_forecast_container, #daily_forecast_container {
         margin: 0;
         max-width: initial;
