@@ -60,6 +60,7 @@ var ui = {
         add_search_input_event();
         setup_settings_inputs();
         setup_weather_chart();
+        setup_precipitation_chart();
 
 
         function add_search_input_event() {
@@ -159,14 +160,14 @@ var ui = {
                         lineJointStyle: "round",
                         clip: 0,
                         fill: "origin",
-                        tension: 0.1
+                        tension: 0.1,
                     },
                     {
                         data: [],
                         yAxisID: "A2",
                         type: "bar",
                         barThickness: 1,
-                        backgroundColor: "rgba(0,0,0,0.1)"
+                        backgroundColor: "rgba(0,0,0,0.1)",
                     }]
                 },
 
@@ -280,6 +281,164 @@ var ui = {
                                 max: 1,
                             }
                         }]
+                    }
+                }
+            });
+        }
+        
+        
+        function setup_precipitation_chart() {
+            var ctx = document.getElementById("hourly_precipitation_chart");
+            
+            hourly_precipitation_chart = new Chart(ctx, {
+                type: "line",
+                data: {
+                    datasets: [
+                        {
+                            data: [],
+                            yAxisID: "B1",
+                            type: "bar",
+                            backgroundColor: "hsla(185, 25%, 50%, 0.5)",
+                            hoverBackgroundColor: "hsla(185, 25%, 30%)",
+                            order: 2
+                        },
+                        {
+                            data: [],
+                            yAxisID: "B2",
+                            type: "line",
+                            backgroundColor: "rgba(0,0,0,0)",
+                            borderWidth: 4,
+                            borderColor: "hsl(185, 25%, 30%)",
+                            pointRadius: 0,
+                            pointHitRadius: 5,
+                            pointHoverRadius: 5,
+                            pointHoverBackgroundColor: "hsl(185, 25%, 30%)",
+                            borderCapStyle: "round",
+                            order: 1
+                        },
+                        {
+                            data: [],
+                            yAxisID: "B3",
+                            type: "bar",
+                            barThickness: 1,
+                            backgroundColor: "rgba(0,0,0,0.1)",
+                        }
+                    ]
+                },
+                options: {
+                    layout: {
+                        padding: {left: 0, top: -5, right: -5, bottom: -5}
+                    },
+                    
+                    legend: {
+                        display: false
+                    },
+
+                    hover: {
+                        mode: "index",
+                        intersect: false
+                    },
+                    
+                    gridLines: {
+                        display: false
+                    },
+                    
+                    tooltips: {
+                        mode: "index",
+                        intersect: false,
+                        titleFontFamily: "Montserrat",
+                        bodyFontFamily: "Montserrat",
+                        displayColors: false,
+
+                        callbacks: {
+                            beforeLabel: function(tooltipItem, data) {
+                                if (tooltipItem.datasetIndex != 0) return false;
+
+                                var data = data.datasets[1].data;
+
+                                var probability = data[tooltipItem.index].y + "%";
+
+                                var label_text = translator.translate_key("rain_probability", configuration.data.language) + ": " + probability;
+                                
+                                return label_text;
+                            },
+
+                            label: function(tooltipItem, data) {
+                                if (tooltipItem.datasetIndex != 0) return false;
+
+                                var data = data.datasets[0].data;
+
+                                var precipitation = data[tooltipItem.index].y + " mm";
+                                
+                                var label_text = translator.translate_key("precipitation", configuration.data.language) + ": " + precipitation;
+                                
+                                return label_text;
+                            }
+                        }
+                    },
+                    
+                    scales: {
+                        xAxes: [{
+                            gridLines: {
+                                display: false
+                            },
+                            ticks: {
+                                maxTicksLimit: 12,
+                                maxRotation: 0,
+                                fontFamily: "Montserrat",
+                                fontColor: "hsl(185, 25%, 20%)"
+                            },
+                            type: "time",
+                            time: {
+                                displayFormats: {
+                                    hour: "HH"
+                                },
+                                tooltipFormat: "ddd, DD. MMM, HH:mm"
+                            }
+                        }],
+                        
+                        yAxes: [{
+                            id: "B1",
+                            position: "left",
+                            /*gridLines: {
+                                color: "rgba(0,0,0,0)",
+                            },*/
+                            ticks: {
+                                startAtZero: true,
+                                fontFamily: "Montserrat",
+                                fontColor: "hsl(185, 25%, 20%)",
+                                callback: function(value) {
+                                    return value + " mm";
+                                }
+                            }
+                        },
+                        {
+                            id: "B2",
+                            position: "right",
+                            gridLines: {
+                                color: "rgba(0,0,0,0)",
+                            },
+                            ticks: {
+                                startAtZero: true,
+                                max: 1,
+                                maxTicksLimit: 6,
+                                fontFamily: "Montserrat",
+                                fontColor: "hsl(185, 25%, 20%)",
+                                callback: function(value) {
+                                    return value * 100 + "%";
+                                }
+                            }
+                        },
+                        {
+                            id: "B3",
+                            display: false,
+                            ticks: {
+                                min: 0,
+                                max: 1,
+                            }
+                        }
+                            
+                        ]
                     }
                 }
             });

@@ -112,6 +112,9 @@ var weather = {
             var forecast_data = [];
             var midnight_data = [];
 
+            var precipitation_data = [];
+            var probability_data = [];
+            
             var pointStyles = [];
 
             for (let i = 0; i < hourly_forecast.length; i++) {
@@ -146,8 +149,12 @@ var weather = {
                     return result;
                 }();
 
-                forecast_data.push({"x": time, "y": temperature, "description": description, "precipitation": precipitation});
+                var probability = hourly_forecast[i].pop;
 
+                forecast_data.push({"x": time, "y": temperature, "description": description, "precipitation": precipitation});
+                precipitation_data.push({"x": time, "y": precipitation});
+                probability_data.push({"x": time, "y": probability});
+                
                 if (time.getHours() == 0) {
                     midnight_data.push({"x": time, "y": 1});
                 }
@@ -156,9 +163,13 @@ var weather = {
             hourly_forecast_chart.data.datasets[0].pointStyle = pointStyles;
             hourly_forecast_chart.data.datasets[0].data = forecast_data;
             hourly_forecast_chart.data.datasets[1].data = midnight_data;
-
             hourly_forecast_chart.update();
 
+            hourly_precipitation_chart.data.datasets[0].data = precipitation_data;
+            hourly_precipitation_chart.data.datasets[1].data = probability_data;
+            hourly_precipitation_chart.data.datasets[2].data = midnight_data;
+            hourly_precipitation_chart.update();
+            
             function generate_canvas_from_weather(weather_id) {
                 var icon_code = icon_map[`wi_owm_${weather_id}`];
 
