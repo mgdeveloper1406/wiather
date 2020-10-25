@@ -181,7 +181,6 @@ var ui = {
                     },
 
                     responsive: true,
-                    // maintainAspectRatio: false,
 
                     hover: {
                         mode: "index",
@@ -223,20 +222,6 @@ var ui = {
                                 var description = data[tooltipItem.index].description;
 
                                 return description;
-                            },
-
-                            afterLabel: function(tooltipItem, data) {
-                                if (tooltipItem.datasetIndex != 0) return false;
-
-                                var data = data.datasets[0].data;
-
-                                var precipitation = data[tooltipItem.index].precipitation;
-
-                                if (precipitation === 0) {
-                                    return false;
-                                }
-
-                                return precipitation + " mm";
                             }
                         }
                     },
