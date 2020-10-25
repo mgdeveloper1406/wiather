@@ -185,7 +185,7 @@ var ui = {
                     hover: {
                         mode: "index",
                         intersect: false,
-                        animationDuration: 00
+                        animationDuration: 0
                     },
 
                     tooltips: {
@@ -321,7 +321,8 @@ var ui = {
 
                     hover: {
                         mode: "index",
-                        intersect: false
+                        intersect: false,
+                        animationDuration: 0
                     },
 
                     gridLines: {
