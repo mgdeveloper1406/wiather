@@ -138,9 +138,9 @@ var ui = {
         function setup_weather_chart() {
             Chart.defaults.global.animation.easing = "easeInOutCubic";
 
-            var ctx = document.getElementById("hourly_forecast_chart").getContext("2d");
+            var ctx = document.getElementById("hourly_temperature_weather_chart").getContext("2d");
 
-            hourly_forecast_chart = new Chart(ctx, {
+            hourly_temperature_weather_chart = new Chart(ctx, {
                 type: "line",
 
                 data: {
@@ -270,11 +270,11 @@ var ui = {
                 }
             });
         }
-        
-        
+
+
         function setup_precipitation_chart() {
             var ctx = document.getElementById("hourly_precipitation_chart");
-            
+
             hourly_precipitation_chart = new Chart(ctx, {
                 type: "line",
                 data: {
@@ -314,7 +314,7 @@ var ui = {
                     layout: {
                         padding: {left: 0, top: -5, right: -5, bottom: -5}
                     },
-                    
+
                     legend: {
                         display: false
                     },
@@ -323,11 +323,11 @@ var ui = {
                         mode: "index",
                         intersect: false
                     },
-                    
+
                     gridLines: {
                         display: false
                     },
-                    
+
                     tooltips: {
                         mode: "index",
                         intersect: false,
@@ -344,7 +344,7 @@ var ui = {
                                 var probability = data[tooltipItem.index].y + "%";
 
                                 var label_text = translator.translate_key("rain_probability", configuration.data.language) + ": " + probability;
-                                
+
                                 return label_text;
                             },
 
@@ -354,14 +354,14 @@ var ui = {
                                 var data = data.datasets[0].data;
 
                                 var precipitation = data[tooltipItem.index].y + " mm";
-                                
+
                                 var label_text = translator.translate_key("precipitation", configuration.data.language) + ": " + precipitation;
-                                
+
                                 return label_text;
                             }
                         }
                     },
-                    
+
                     scales: {
                         xAxes: [{
                             gridLines: {
@@ -381,13 +381,10 @@ var ui = {
                                 tooltipFormat: "ddd, DD. MMM, HH:mm"
                             }
                         }],
-                        
+
                         yAxes: [{
                             id: "B1",
                             position: "left",
-                            /*gridLines: {
-                                color: "rgba(0,0,0,0)",
-                            },*/
                             ticks: {
                                 startAtZero: true,
                                 fontFamily: "Montserrat",
@@ -421,9 +418,7 @@ var ui = {
                                 min: 0,
                                 max: 1,
                             }
-                        }
-                            
-                        ]
+                        }]
                     }
                 }
             });

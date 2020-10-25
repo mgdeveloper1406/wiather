@@ -160,10 +160,10 @@ var weather = {
                 }
             }
 
-            hourly_forecast_chart.data.datasets[0].pointStyle = pointStyles;
-            hourly_forecast_chart.data.datasets[0].data = forecast_data;
-            hourly_forecast_chart.data.datasets[1].data = midnight_data;
-            hourly_forecast_chart.update();
+            hourly_temperature_weather_chart.data.datasets[0].pointStyle = pointStyles;
+            hourly_temperature_weather_chart.data.datasets[0].data = forecast_data;
+            hourly_temperature_weather_chart.data.datasets[1].data = midnight_data;
+            hourly_temperature_weather_chart.update();
 
             hourly_precipitation_chart.data.datasets[0].data = precipitation_data;
             hourly_precipitation_chart.data.datasets[1].data = probability_data;

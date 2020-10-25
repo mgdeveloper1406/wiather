@@ -67,12 +67,11 @@
             </div>
 
 
-
             <div id="hourly_forecast_container" class="round_corners">
                 <h2 data-translator-key="48_hours">48 Hours</h2>
 
                 <div style="position: relative;">
-                    <canvas id="hourly_forecast_chart"></canvas>
+                    <canvas id="hourly_temperature_weather_chart"></canvas>
                 </div>
             </div>
 
@@ -129,7 +128,7 @@
                 <input id="unit_input_imperial" name="units_input" value="imperial" type="radio"/>
                 <label for="unit_input_imperial" data-translator-key="imperial">Imperial</label>
             </div>
-            
+
             <h3 data-translator-key="other">Other</h3>
             <button id="data_delete_button" class="round_corners" data-translator-key="delete_personal_data" onclick="configuration.delete();">Delete personal data</button>
         </div>
