@@ -147,14 +147,14 @@ var ui = {
                     datasets: [{
                         data: [],
                         yAxisID: "A1",
-                        borderWidth: 4,
+                        borderWidth: 3,
                         borderColor: "hsl(185, 25%, 30%)",
-                        backgroundColor: "hsla(185, 25%, 50%, 0.5)",
+                        backgroundColor: "hsla(185, 25%, 50%, 0.3)",
                         hoverBackgroundColor: "hsl(185, 25%, 30%)",
                         pointRadius: 0,
                         pointBorderWidth: 0,
                         pointHitRadius: 5,
-                        pointHoverRadius: 8,
+                        pointHoverRadius: 5,
                         pointHoverBorderWidth: 0,
                         borderCapStyle: "round",
                         lineJointStyle: "round",
@@ -292,7 +292,7 @@ var ui = {
                             yAxisID: "B2",
                             type: "line",
                             backgroundColor: "rgba(0,0,0,0)",
-                            borderWidth: 4,
+                            borderWidth: 3,
                             borderColor: "hsl(185, 25%, 30%)",
                             pointRadius: 0,
                             pointHitRadius: 5,
@@ -306,13 +306,13 @@ var ui = {
                             yAxisID: "B3",
                             type: "bar",
                             barThickness: 1,
-                            backgroundColor: "rgba(0,0,0,0.1)",
+                            backgroundColor: "rgba(0,0,0,0.1)"
                         }
                     ]
                 },
                 options: {
                     layout: {
-                        padding: {left: 0, top: -5, right: -5, bottom: -5}
+                        padding: {left: -5, top: -5, right: -5, bottom: -5}
                     },
 
                     legend: {
@@ -342,7 +342,7 @@ var ui = {
 
                                 var data = data.datasets[1].data;
 
-                                var probability = data[tooltipItem.index].y + "%";
+                                var probability = data[tooltipItem.index].y * 100 + "%";
 
                                 var label_text = translator.translate_key("rain_probability", configuration.data.language) + ": " + probability;
 
@@ -388,10 +388,12 @@ var ui = {
                             position: "left",
                             ticks: {
                                 startAtZero: true,
+                                min: 0,
+                                maxTicksLimit: 6,
                                 fontFamily: "Montserrat",
                                 fontColor: "hsl(185, 25%, 20%)",
                                 callback: function(value) {
-                                    return value + " mm";
+                                    return value;// + " mm";
                                 }
                             }
                         },
@@ -404,6 +406,7 @@ var ui = {
                             ticks: {
                                 startAtZero: true,
                                 max: 1,
+                                min: 0,
                                 maxTicksLimit: 6,
                                 fontFamily: "Montserrat",
                                 fontColor: "hsl(185, 25%, 20%)",
