@@ -338,10 +338,11 @@ header > h1 {
     left: 0;
     height: 100%;
     width: min(300px, 85%);
-    padding: 0 var(--space-0);
+    padding: 0 var(--space-0) var(--space-0) var(--space-0);
     background-color: #FFFFFF;
     z-index: 20;
     transition: transform 0.3s;
+    overflow: auto;
 }
 
 #menu > h2, h3 {
