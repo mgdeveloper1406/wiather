@@ -194,6 +194,7 @@ var ui = {
                         titleFontFamily: "Montserrat",
                         bodyFontFamily: "Montserrat",
                         displayColors: false,
+                        position: "nearest",
 
                         callbacks: {
                             beforeLabel: function(tooltipItem, data) {
@@ -335,6 +336,7 @@ var ui = {
                         titleFontFamily: "Montserrat",
                         bodyFontFamily: "Montserrat",
                         displayColors: false,
+                        position: "average",
 
                         callbacks: {
                             beforeLabel: function(tooltipItem, data) {
@@ -342,7 +344,7 @@ var ui = {
 
                                 var data = data.datasets[1].data;
 
-                                var probability = data[tooltipItem.index].y * 100 + "%";
+                                var probability = Math.round(data[tooltipItem.index].y * 100) + "%";
 
                                 var label_text = translator.translate_key("rain_probability", configuration.data.language) + ": " + probability;
 
