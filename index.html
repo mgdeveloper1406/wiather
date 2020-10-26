@@ -26,17 +26,15 @@
         <header>
             <button id="menu_button" class="icon-menu round_corners" onclick="ui.menu.show();"></button>
 
-            <div id="current_location_label"></div>
-
-            <button id="favorite_button" class="icon-star-empty round_corners" onclick="locations.add_current_location();"></button>
+            <h1 data-translator-key="weather">Weather</h1>
         </header>
 
 
 
         <div id="weather_container">
             <div id="current_weather_container" class="round_corners">
-                <h2 data-translator-key="current_weather">Aktuelles Wetter</h2>
-
+                <h2 id="current_location_label"></h2>
+            <button id="favorite_button" class="icon-star-empty round_corners" onclick="locations.add_current_location();"></button>
                 <div id="current_weather_primary_grid">
                     <div id="current_temperature_label"></div>
                     <div id="current_weather_icon" class="wi"></div>

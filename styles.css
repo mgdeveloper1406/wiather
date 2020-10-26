@@ -34,6 +34,10 @@
     box-sizing: border-box;
 }
 
+h1 {
+    margin: 0;
+}
+
 h2 {
     margin: 0;
     font-size: var(--space-1);
@@ -121,23 +125,16 @@ header {
     background-color: #FFFFFF;
 }
 
-header > button {
+#menu_button {
     position: fixed;
     top: calc((var(--space-5) - var(--space-3)) / 2);
+    left: calc((var(--space-5) - var(--space-3)) / 2);
     height: var(--space-3);
     width: var(--space-3);
     font-size: var(--space-1);
 }
 
-#menu_button {
-    left: calc((var(--space-5) - var(--space-3)) / 2);
-}
-
-#favorite_button {
-    right: calc((var(--space-5) - var(--space-3)) / 2);
-}
-
-#current_location_label {
+header > h1 {
     font-size: var(--space-1);
     font-weight: 600;
 }
@@ -174,11 +171,20 @@ header > button {
     max-width: 600px;
     padding: var(--space-0);
     padding-bottom: var(--space-2);
+    position: relative;
 }
 
 #current_weather_container > h2 {
     grid-column: 1 / 2;
     text-align: left;
+}
+
+#favorite_button {
+    position: absolute;
+    top: calc(var(--space-0) - (var(--space-3) - var(--space-2)) / 2);
+    right: calc(var(--space-0) - (var(--space-3) - var(--space-2)) / 2);
+    height: var(--space-3);
+    width: var(--space-3);
 }
 
 #current_weather_primary_grid {
@@ -429,7 +435,7 @@ header > button {
         grid-template-columns: 300px 1fr;
     }
 
-    #current_location_label {
+    header > h1 {
         text-align: left;
         margin-left: var(--space-0);
     }
