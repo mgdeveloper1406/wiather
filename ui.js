@@ -82,6 +82,7 @@ var ui = {
                     '<span class="day_label"></span>' +
                     '<span class="weather_icon wi"></span>' +
                     '<div class="temperature_span_container"><div class="temperature_span_bar"></div></div>' +
+                    '<div class="accordeon_arrow icon-angle-down"></div>' +
                     '<div class="additional_info_container hidden">More info</div>' +
                     '</div>';
             }
@@ -90,7 +91,9 @@ var ui = {
 
             for (let element of additional_info_containers) {
                 element.addEventListener("click", function(e) {
-                    element.getElementsByClassName("additional_info_container")[0].classList.toggle("hidden")
+                    element.getElementsByClassName("additional_info_container")[0].classList.toggle("hidden");
+                    element.getElementsByClassName("accordeon_arrow")[0].classList.toggle("icon-angle-down");
+                    element.getElementsByClassName("accordeon_arrow")[0].classList.toggle("icon-angle-up");
                 });
             }
         }

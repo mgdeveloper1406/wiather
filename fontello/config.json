@@ -33,7 +33,19 @@
     {
       "uid": "f48ae54adfb27d8ada53d0fd9e34ee10",
       "css": "delete",
-      "code": 59395,
+      "code": 59177,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "e4dde1992f787163e2e2b534b8c8067d",
+      "css": "angle-down",
+      "code": 61703,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "5de9370846a26947e03f63142a3f1c07",
+      "css": "angle-up",
+      "code": 61702,
       "src": "fontawesome"
     }
   ]

@@ -250,7 +250,7 @@ header > h1 {
 
 #daily_forecast_container > .daily_forecast_row {
     display: grid;
-    grid-template-columns: 5ch auto 1fr;
+    grid-template-columns: 5ch auto 1fr var(--space-1);
     grid-gap: 0 var(--space-0);
     margin-top: var(--space--1);
 }
