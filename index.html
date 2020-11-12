@@ -34,34 +34,46 @@
         <div id="weather_container">
             <div id="current_weather_container" class="round_corners">
                 <h2 id="current_location_label"></h2>
-            <button id="favorite_button" class="icon-star-empty round_corners" onclick="locations.add_current_location();"></button>
+                <button id="favorite_button" class="icon-star-empty round_corners" onclick="locations.add_current_location();"></button>
+
+            <div id="current_weather_container_grid">
+
                 <div id="current_weather_primary_grid">
                     <div id="current_temperature_label"></div>
                     <div id="current_weather_icon" class="wi"></div>
                     <div id="current_weather_label"></div>
                 </div>
 
+            <div class="separator"></div>
+
                 <div id="current_weather_secondary_grid">
                     <div>
                         <span class="wi wi-umbrella"></span>
-                        <span id="current_precipitation_label"></span>
+                        <span data-translator-key="precipitation">Niederschlag</span>:
                     </div>
+                    <span id="current_precipitation_label"></span>
 
                     <div>
                         <span id="current_wind_direction_label" class="wi wi-direction-up"></span>
-                        <span id="current_wind_speed_label"></span>
+                        <span data-translator-key="wind">Wind</span>:
                     </div>
+                    <span id="current_wind_speed_label"></span>
 
                     <div>
                         <span class="wi wi-humidity"></span>
-                        <span id="current_humidity_label"></span>
+                        <span data-translator-key="humidity">Luftfeuchtigkeit</span>:
                     </div>
+                    <span id="current_humidity_label"></span>
 
                     <div>
                         <span class="wi wi-barometer"></span>
-                        <span id="current_pressure_label"></span>
+                        <span data-translator-key="air_pressure">Luftdruck</span>:
                     </div>
+                    <span id="current_pressure_label"></span>
                 </div>
+
+            </div>
+
             </div>
 
 
