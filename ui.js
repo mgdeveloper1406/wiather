@@ -162,8 +162,7 @@ var ui = {
                         borderCapStyle: "round",
                         lineJointStyle: "round",
                         clip: 0,
-                        fill: "origin",
-                        tension: 0.1,
+                        fill: "origin"
                     },
                     {
                         data: [],
