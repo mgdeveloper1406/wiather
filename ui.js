@@ -54,6 +54,49 @@ var ui = {
         }
     },
 
+    popup: {
+        show: function(id) {
+            ui.menu.hide();
+
+            document.getElementById(id).classList.remove("hidden");
+            document.getElementById("overlay").classList.remove("hidden");
+        },
+
+        hide: function() {
+            var popups = document.getElementsByClassName("popup");
+
+            for (let popup of popups) {
+                popup.classList.add("hidden");
+            }
+
+            document.getElementById("overlay").classList.add("hidden");
+        },
+    },
+
+    save_settings: function() {
+        var language_inputs = document.querySelectorAll("#language_inputs_container > input");
+
+        for (let input of language_inputs) {
+            if (input.checked === true) {
+                configuration.data.language = input.value;
+            }
+        }
+
+        var unit_inputs = document.querySelectorAll("#units_inputs_container > input");
+
+        for (let input of unit_inputs) {
+            if (input.checked === true) {
+                configuration.data.units = input.value;
+            }
+        }
+
+        configuration.save();
+
+        if (confirm(translator.translate_key("confirm_page_refresh", configuration.data.language))) {
+            window.location.reload();
+        }
+    },
+
     setup: function() {
         ui.menu.fill_favorite_locations_container();
         fill_daily_forecast_container();
@@ -100,24 +143,9 @@ var ui = {
 
 
         function setup_settings_inputs() {
-            var settings_inputs = document.querySelectorAll("#language_inputs_container > input, #units_inputs_container > input")
-
-            for (let input of settings_inputs) {
-                input.addEventListener("change", function() {
-                    if (confirm(translator.translate_key("confirm_page_refresh", configuration.data.language))) {
-                        window.location.reload();
-                    }
-                });
-            }
-
             var language_inputs = document.querySelectorAll("#language_inputs_container > input");
 
             for (let input of language_inputs) {
-                input.addEventListener("change", function() {
-                    configuration.data.language = input.value;
-                    configuration.save();
-                });
-
                 if (input.value == configuration.data.language) {
                     input.checked = true;
                 }
@@ -126,11 +154,6 @@ var ui = {
             var unit_inputs = document.querySelectorAll("#units_inputs_container > input");
 
             for (let input of unit_inputs) {
-                input.addEventListener("change", function() {
-                    configuration.data.units = input.value;
-                    configuration.save();
-                });
-
                 if (input.value == configuration.data.units) {
                     input.checked = true;
                 }

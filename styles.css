@@ -48,12 +48,24 @@ h3 {
     font-size: var(--space-0);
 }
 
-button {
+button, .clickable {
     font-size: var(--space-0);
     font-family: inherit;
     border: 0;
+    height: var(--space-3);
+    line-height: var(--space-3);
     color: inherit;
     background-color: transparent;
+    transition: background-color 0.2s;
+}
+
+.clickable {
+    padding: 0 var(--space--1);
+}
+
+button:active, .clickable:active {
+    background-color: rgba(0,0,0,0.1);
+    transition: background-color 0s;
 }
 
 button::before {
@@ -77,17 +89,8 @@ input[type="radio"] {
 }
 
 
-.round_corners {
+.round_corners, .popup, button, .clickable {
     border-radius: var(--space--2);
-}
-
-button, .clickable {
-    transition: background-color 0.2s;
-}
-
-button:active, .clickable:active {
-    background-color: rgba(0,0,0,0.1);
-    transition: background-color 0s;
 }
 
 html {
@@ -129,7 +132,7 @@ header {
     position: fixed;
     top: calc((var(--space-5) - var(--space-3)) / 2);
     left: calc((var(--space-5) - var(--space-3)) / 2);
-    height: var(--space-3);
+    /*height: var(--space-3);*/
     width: var(--space-3);
     font-size: var(--space-1);
 }
@@ -361,6 +364,7 @@ header > h1 {
     height: 1px;
     background-color: rgba(0, 0, 0, 0.2);
     margin-top: var(--space--2);
+    margin-bottom: var(--space--2);
 }
 
 #location_input_container {
@@ -403,8 +407,6 @@ header > h1 {
 }
 
 #favorite_locations_container > span {
-    line-height: var(--space-3);
-    padding: 0 var(--space--1);
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -425,6 +427,38 @@ header > h1 {
 }
 
 
+
+/* Settings popup */
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: calc(100% - 2 * var(--space-0));
+    max-width: 400px;
+    padding: var(--space-0);
+    transform: translate(-50%, -50%);
+    background-color: #FFFFFF;
+    z-index: 30;
+    transition: opacity 0.3s 0.3s, transform 0.3s 0.3s, top 0s 0s;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+}
+
+.popup.hidden {
+    top: 100%;
+    opacity: 0;
+    transform: translate(-50%, calc(-50% + var(--space-2)));
+    transition: opacity 0.3s, transform 0.3s, top 0s 0.3s;
+}
+
+.popup > .popup_buttons_container {
+    margin-top: var(--space-0);
+    text-align: right;
+}
+
+.popup > .popup_buttons_container > button + button {
+    margin-left: var(--space-0);
+}
 
 /* Media queries */
 
@@ -472,6 +506,7 @@ header > h1 {
         height: min-content;
         padding-bottom: var(--space-0);
         border-radius: var(--space--2);
+        z-index: 0;
     }
 
     #menu.hidden {
@@ -479,8 +514,8 @@ header > h1 {
         transition: none;
     }
 
-    #overlay {
-        display: none;
+    .popup {
+        transition: opacity 0.3s, transform 0.3s, top 0s 0s;
     }
 }
 
