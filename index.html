@@ -116,13 +116,13 @@
 
             <div class="separator"></div>
 
-            <div class="clickable" onclick="ui.popup.show('settings_popup');">Settings</div>
+            <button data-translator-key="settings" onclick="ui.popup.show('settings_popup');">Settings</button>
         </div>
 
 
 
         <div id="settings_popup" class="popup hidden">
-            <h2>Settings</h2>
+            <h2 data-translator-ley="settings">Settings</h2>
 
             <h3 data-translator-key="language">Language</h3>
 
@@ -148,8 +148,8 @@
             <button id="data_delete_button" class="round_corners" data-translator-key="delete_personal_data" onclick="configuration.delete();">Delete personal data</button>
 
             <div class="popup_buttons_container">
-                <button onclick="ui.popup.hide();">Close</button><!--
-                --><button onclick="ui.save_settings();">Save</button>
+                <button data-translator-key="close" onclick="ui.popup.hide();">Close</button><!--
+                --><button data-translator-key="save" onclick="ui.save_settings();">Save</button>
             </div>
         </div>
     </body>

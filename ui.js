@@ -23,11 +23,11 @@ var ui = {
 
             if (favorite_locations.length > 0) {
                 for (let location of favorite_locations) {
-                    let location_element = document.createElement("span");
+                    let location_element = document.createElement("button");
 
                     location_element.innerText = location;
 
-                    location_element.classList.add("round_corners", "clickable");
+                    location_element.classList.add("round_corners", "favorite_location_button");
 
                     location_element.addEventListener("click", async function() {
                         weather_info = await weather.fetch_weather_info(location);
