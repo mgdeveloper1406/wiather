@@ -445,7 +445,7 @@ header > h1 {
     text-overflow: ellipsis;
 }
 
-.icon-delete, .icon-star {
+.icon-delete, .icon-star, .icon-star-empty {
     font-size: var(--space-0);
 }
 
