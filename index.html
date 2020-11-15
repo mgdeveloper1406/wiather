@@ -1,30 +1,33 @@
 <!doctype html>
 
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <meta name="theme-color" content="hsl(185, 25%, 20%)"/>
+        <meta name="description" content="A simple weather application built using the OpenWeatherMap API and Chart.js"/>
         <title data-translator-key="weather">Weather</title>
         <link rel="stylesheet" type="text/css" href="styles.css"/>
         <link rel="stylesheet" type="text/css" href="fontello/css/fontello.css"/>
         <link rel="stylesheet" type="text/css" href="weather-icons-master/css/weather-icons.min.css"/>
+        <link rel="preload" as="font" type="font/woff2" href="fontello/font/fontello.woff2?84213311" crossorigin/>
+        <link rel="preload" as="font" type="font/woff2" href="weather-icons-master/font/weathericons-regular-webfont.woff2" crossorigin/>
         <link rel="manifest" href="manifest.json"/>
         <link rel="apple-touch-icon" href="icon.png"/>
         <link rel="icon" type="image/png" href="icon.png"/>
-        <script src="Chart.bundle.min.js"></script>
-        <script src="locations.js"></script>
-        <script src="ui.js"></script>
-        <script src="icon_map.js"></script>
-        <script src="translator.js"></script>
-        <script src="weather.js"></script>
-        <script src="configuration.js"></script>
-        <script src="main.js"></script>
+        <script defer src="Chart.bundle.min.js"></script>
+        <script defer src="locations.js"></script>
+        <script defer src="ui.js"></script>
+        <script defer src="icon_map.js"></script>
+        <script defer src="translator.js"></script>
+        <script defer src="weather.js"></script>
+        <script defer src="configuration.js"></script>
+        <script defer src="main.js"></script>
     </head>
 
     <body>
         <header>
-            <button id="menu_button" class="icon-menu" onclick="ui.menu.show();"></button>
+            <button id="menu_button" class="icon-menu" onclick="ui.menu.show();" aria-label="Menu"></button>
 
             <h1 data-translator-key="weather">Weather</h1>
         </header>
@@ -34,7 +37,7 @@
         <div id="weather_container">
             <div id="current_weather_container" class="round_corners">
                 <h2 id="current_location_label"></h2>
-                <button id="favorite_button" class="icon-star-empty round_corners" onclick="locations.add_current_location();"></button>
+                <button id="favorite_button" class="icon-star-empty round_corners" onclick="locations.add_current_location();" aria-label="Toggle star"></button>
 
             <div id="current_weather_container_grid">
 
@@ -107,8 +110,9 @@
             <h2 data-translator-key="locations">Locations</h2>
 
             <div id="location_input_container" class="round_corners">
-                <input id="location_input" placeholder="Ort suchen"/>
-                <button class="icon-search round_corners" onclick="weather.search();ui.menu.hide();"></button>
+                <label class="sr-only" for="location_input" data-translator-key="search_location">Search location</label>
+                <input id="location_input" placeholder="Search location"/>
+                <button class="icon-search round_corners" onclick="weather.search(); ui.menu.hide();" aria-label="Search"></button>
             </div>
 
             <h3 data-translator-key="favorite_locations">Favorite locations</h3>

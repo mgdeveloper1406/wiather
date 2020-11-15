@@ -1,11 +1,13 @@
 @font-face {
     font-family: "Montserrat";
+    font-display: swap;
     font-weight: 400;
     src: url("Montserrat/Montserrat-Medium.ttf");
 }
 
 @font-face {
     font-family: "Montserrat";
+    font-display: swap;
     font-weight: 600;
     src: url("Montserrat/Montserrat-SemiBold.ttf");
 }
@@ -110,6 +112,15 @@ input[type="radio"] {
     border-radius: var(--space--2);
 }
 
+
+.sr-only {
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
 
 
 /* Popups */

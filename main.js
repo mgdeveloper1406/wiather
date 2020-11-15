@@ -10,7 +10,7 @@ window.onload = async function() {
 
     ui.setup();
 
-    if (configuration.language != "en") {
+    if (configuration.data.language != "en") {
         translator.translate_page(configuration.data.language);
     }
 

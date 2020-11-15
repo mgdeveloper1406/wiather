@@ -88,6 +88,8 @@ var translator = {
         }
 
         document.getElementById("location_input").setAttribute("placeholder", translator.translate_key("search_location", language));
+
+        document.documentElement.lang = language;
     },
 
     translate_key: function(key, language) {
