@@ -1,11 +1,11 @@
-# Weather
+# PlainWeather
 
-A simple weather application built using the OpenWeatherMap API and Chart.js
+A plain and simple weather application built using the OpenWeatherMap API and Chart.js
 
 
 
 ## Screenshots
-<img src="https://user-images.githubusercontent.com/53840228/99149857-dd026580-2690-11eb-88e6-f7a3c4144818.png" height="350"/> <img src="https://user-images.githubusercontent.com/53840228/99149861-dffd5600-2690-11eb-8c22-05669bc750b7.png" height="350"/>
+<img src="https://user-images.githubusercontent.com/53840228/99886257-596de900-2c3b-11eb-8285-529274f76b4a.png" height="350"/> <img src="https://user-images.githubusercontent.com/53840228/99886259-5b37ac80-2c3b-11eb-93aa-b22b6fde67de.png" height="350"/>
 
 
 ## Installation

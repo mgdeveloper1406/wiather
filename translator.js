@@ -5,7 +5,6 @@
 var translator = {
     dictionary: {
         "en": {
-            "weather": "Weather",
             "48_hours": "48 hours",
             "temperature": "Temperature",
             "7_days": "7 days",
@@ -42,7 +41,6 @@ var translator = {
         },
 
         "de": {
-            "weather": "Wetter",
             "48_hours": "48 Stunden",
             "temperature": "Temperatur",
             "7_days": "7 Tage",

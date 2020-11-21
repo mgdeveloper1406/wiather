@@ -1,6 +1,6 @@
 {
-    "name": "Weather",
-    "short_name": "Weather",
+    "name": "PlainWeather",
+    "short_name": "PlainWeather",
     "display": "standalone",
     "start_url": "/",
     "icons": [
