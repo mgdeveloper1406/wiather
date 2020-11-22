@@ -30,8 +30,11 @@ var ui = {
                     location_element.classList.add("round_corners", "favorite_location_button");
 
                     location_element.addEventListener("click", async function() {
-                        weather_info = await weather.fetch_weather_info(location);
-                        weather.display_weather_info(weather_info);
+                        var weather_info = await weather.fetch_weather_info(location);
+
+                        if (weather_info !== false) {
+                            weather.display_weather_info(weather_info);
+                        }
 
                         ui.menu.hide();
                     });

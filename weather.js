@@ -9,12 +9,20 @@ var weather = {
         var search_location = document.getElementById("location_input").value;
 
         var weather_info = await weather.fetch_weather_info(search_location);
-        weather.display_weather_info(weather_info);
+
+        if (weather_info !== false) {
+            weather.display_weather_info(weather_info);
+        }
     },
 
 
     fetch_weather_info: async function(city_name) {
         var current_weather = await get_current_weather(city_name);
+
+        if (current_weather === false) {
+            return false;
+        }
+
         var forecast = await get_forecast(current_weather.coord);
 
         var response = {
@@ -40,8 +48,8 @@ var weather = {
             }
 
             else {
-                // alert?
-                console.log("HTTP-Error: " + current_res.status);
+                alert("HTTP-Error " + current_res.status + "\n\nPossibly, there is no data for the location you are looking for.");
+                return false;
             }
         }
 
@@ -56,7 +64,8 @@ var weather = {
             }
 
             else {
-                console.log("HTTP-Error: " + response.status);
+                alert("HTTP-Error " + current_res.status + "\n\nSomething went wrong when fetching the forecast data.");
+                return false;
             }
         }
     },
