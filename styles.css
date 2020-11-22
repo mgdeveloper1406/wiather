@@ -448,6 +448,7 @@ header > h1 {
     grid-template-columns: auto var(--space-3);
     grid-auto-rows: var(--space-3);
     grid-gap: 0 var(--space--2);
+    line-height: var(--space-3)
 }
 
 #favorite_locations_container > .favorite_location_button {
