@@ -232,6 +232,7 @@ header > h1 {
 
 #current_weather_container > h2 {
     text-align: left;
+    height: var(--space-2);
 }
 
 #favorite_button {
