@@ -26,6 +26,12 @@
     --space--1: calc(var(--space-0) / var(--factor));
     --space--2: calc(var(--space--1) / var(--factor));
     --space--3: calc(var(--space--2) / var(--factor));
+
+    --hue-theme: 185;
+    --color-theme: hsl(var(--hue-theme), 25%, 35%);
+    --color-text: hsl(var(--hue-theme), 25%, 20%);
+    --color-background: hsl(0, 0%, 95%);
+    --color-negative: hsl(5, 60%, 50%);
 }
 
 
@@ -50,9 +56,9 @@ body {
     grid-gap: var(--space-0);
     font-family: "Montserrat", sans-serif;
     font-size: var(--space-0);
-    color: hsl(185, 25%, 20%);
+    color: var(--color-text);
     line-height: var(--factor);
-    background-color: hsl(0, 0%, 95%);
+    background-color: var(--color-background);
 }
 
 h1 {
@@ -89,6 +95,14 @@ button:active {
 
 button::before {
     margin: 0 !important;
+}
+
+button.positive {
+    color: var(--color-theme);
+}
+
+button.negative {
+    color: var(--color-negative);
 }
 
 input {
@@ -209,7 +223,7 @@ header > h1 {
 
 #current_weather_container {
     color: #FFFFFF;
-    background-color: hsl(185, 25%, 35%);
+    background-color: var(--color-theme);
     padding: var(--space-0);
     padding-bottom: var(--space-1);
     position: relative;
@@ -332,7 +346,7 @@ header > h1 {
 }
 
 .temperature_span_bar > div {
-    background-color: hsl(185, 25%, 35%);
+    background-color: var(--color-theme);
     border-radius: calc(var(--space--2) / 2);
     height: var(--space--2);
 }

@@ -41,7 +41,7 @@ var ui = {
 
                     let location_delete_element = document.createElement("button");
 
-                    location_delete_element.classList.add("icon-delete", "round_corners");
+                    location_delete_element.classList.add("icon-delete", "round_corners", "negative");
                     location_delete_element.setAttribute("aria-label", "Delete")
 
                     location_delete_element.addEventListener("click", function() {
